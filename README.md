@@ -17,7 +17,7 @@
 ## adaptive layout
 
 - min viewport - 320px
-- max viewport - 1440px
+- max viewport - 2560px
 
 ## technology stack:
 

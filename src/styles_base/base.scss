@@ -25,11 +25,11 @@ body {
   margin: 0 auto; // центрируем по горизонтали
 
   padding-left: 15px; // отступ от края экрана
-  padding-left: 15px; // отступ от края экрана
+  padding-right: 15px; // отступ от края экрана
 
   min-height: 100%; // чтоб footer не поднимался
   max-width: calc($maxWidth*1px); // значение из макета - установлено в base/var.scss 
-
+  width: 100%;
   display: flex; // чтоб footer не поднимался
   flex-flow: column nowrap; // чтоб footer не поднимался
 }

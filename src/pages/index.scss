@@ -74,6 +74,8 @@ canvas {
 
 .thisProject__img {
   img {
+
+    max-width: 100%;
     width: func_prop(1039);
     height: auto;
   }
@@ -246,10 +248,10 @@ canvas {
   position: relative;
   display: flex;
   flex-flow: column nowrap;
-  gap: func_prop(111);
+
+  gap: func_respons(111, 33);
 
   img {
-    // display: block;
     max-width: 100%;
     height: auto;
     z-index: 100;
@@ -290,7 +292,6 @@ canvas {
   &__4,
   &__8 {
     width: func_prop(500);
-    margin-top: -33.3%;
   }
 
   &__5,
@@ -298,7 +299,6 @@ canvas {
     width: func_prop(500);
     align-self: flex-end;
     text-align: right;
-    margin-top: -33.3%;
   }
 
   img {
