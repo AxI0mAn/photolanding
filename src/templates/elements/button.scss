@@ -14,7 +14,7 @@
     @include сentering-xy();
     color: $T-color;
     font-family: 'DM Mono', monospace;
-    font-size: 18px;
+    @include font_adapt(18, 12);
     letter-spacing: normal;
 
     white-space: nowrap; //запретить переносить слова

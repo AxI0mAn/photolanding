@@ -11,7 +11,6 @@
   flex-flow: column nowrap;
   justify-content: space-around;
   position: relative;
-  // overflow-x: hidden;
 }
 
 canvas {
@@ -168,6 +167,7 @@ canvas {
 
 .swiper-slide {
   min-width: 300px;
+  max-width: 500px;
 
   img {
     max-width: 100%;
@@ -342,7 +342,7 @@ canvas {
 
 .icon_scrollH {
   @include сentering-x();
-  top: 20%;
+  bottom: 10%;
   z-index: 300;
 
   path {
@@ -443,5 +443,10 @@ canvas {
   position: -webkit-sticky;
   /* Safari */
   position: sticky;
-  top: 80vh;
+  top: 90vh;
+  opacity: .3;
+
+  &:hover {
+    opacity: 1;
+  }
 }
