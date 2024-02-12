@@ -2,7 +2,7 @@
 
 ## finished practice work
 
-- [landing page for photograph](https://axi0man.github.io/SITE/)
+- [landing page for photograph](https://axi0man.github.io/photolanding/)
 
 ## makets
 
