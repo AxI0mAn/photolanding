@@ -1,0 +1,103 @@
+@import "./bs-init.scss";
+
+.bs-container {
+  @include bs-container;
+  border: 2px solid rgb(30, 255, 0);
+  max-height: 800px;
+}
+
+.item {
+  border: 2px solid red;
+
+  &--img {
+    border: 2px solid rgb(255, 255, 255);
+    min-width: 150px;
+    min-height: 150px;
+  }
+}
+
+.block-up__img {
+  max-width: 100%;
+
+  @media (min-width: 768px) {
+    min-width: 300px;
+  }
+}
+
+.block-up {
+  @include bs-row;
+
+  &__first {
+    @include bs-col(3);
+  }
+
+  &__second {
+    @include bs-col(2);
+    // min-width: 200px;
+  }
+
+  &__therd {
+    @include bs-col(3);
+  }
+
+  &__item--img {
+    @include bs-col(2);
+    @include transit(1s);
+
+    @media (min-width: $tab) {
+      @include bs-col(3);
+      @include transit(1s);
+    }
+  }
+}
+
+
+// Максимальная ширина контейнера
+$bs-container-max-width: 960px;
+// Выравнивание элементов в строке
+$justify-content: space-around;
+// Количество колонок
+$bs-grid-columns: 12;
+// Расстояние между элементами
+$bs-grid-gap: 20px;
+
+.section.name {
+  background-color: blue;
+}
+
+.name {
+  &__bs-container {
+    @include bs-container;
+    background-color: rgb(229, 255, 0);
+  }
+
+  &__bs-row {
+    @include bs-row;
+
+  }
+}
+
+.first__bs-col--img {
+  @include bs-col(12);
+  @include transit(1s);
+
+  @media (min-width: $tab) {
+    @include bs-col(2);
+    @include transit(1s);
+  }
+
+}
+
+.second__bs-col--text {
+  @include bs-col(4);
+  align-self: center;
+}
+
+.second__bs-col--img {
+  @include bs-col(4);
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

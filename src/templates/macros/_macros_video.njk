@@ -1,0 +1,29 @@
+{% set params = [
+  {
+    class: 'new__video',
+    nameV: 'src',
+    nameP: 'src',
+    folder: 'alt'
+  }
+] %}
+
+{%- macro pack(params) -%}
+  <video class="{{params.class}}" preload="auto" width="396px" control muted loop poster="{{params.folder}}{{params.nameP}}-B.jpeg"/>
+  <source src="{{params.folder}}{{params.nameV}}.mp4"  type="video/mp4" poster="{{params.folder}}{{params.nameP}}-B.jpeg"/>
+  <source src="{{params.folder}}{{params.nameV}}.webm"  type="video/webm" poster="{{params.folder}}{{params.nameP}}.webp"/>
+</video>
+{%- endmacro -%}
+
+{# USE
+
+{% set video1 ={ 
+    nameV: 'src',
+    nameP: 'src',
+    folder: 'alt'
+    }
+  %}
+
+{%- import "_macros_video.njk" as makeVideo -%}
+  {{ makeVideo.pack(video1) }}
+ 
+#}

@@ -1,0 +1,48 @@
+@use 'sass:math';
+
+// создаем контейнер
+@mixin bs-container {
+  max-width: $bs-container-max-width; //кратно количеству колонок
+  margin: 0 auto; // центрируем контейнер
+
+  padding-left: $bs-grid-gap-side; // чтобы контент отступал от краев экрана
+  padding-right: $bs-grid-gap-side; // чтобы контент отступал от краев экрана
+}
+
+// создаем строки
+@mixin bs-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: $justify-content;
+  margin-left: -$bs-grid-gap-side;
+  margin-right: -$bs-grid-gap-side;
+
+  >* {
+    margin-left: $bs-grid-gap-side;
+    margin-right: $bs-grid-gap-side;
+  }
+}
+
+// вычисляем ширину блока с учетом внешних отступов
+@mixin bs-col($size) {
+  margin-bottom: 5px; // чтоб не слипались блоки при переносе
+  flex: 0 0 auto;
+  width: calc(#{math.div($size, $bs-grid-columns)*100%} - #{$bs-grid-gap}); // percentage(1/12) - заменил на #{math.div($size, $bs-grid-columns)*100%}
+}
+
+// медиа-запрос
+// First Mobile
+@mixin bs-media($width) {
+  @media(min-width: $width) {
+    @content; // передаем внутрь миксина стили, а он заменяет набор правил, которые передаются внутрь миксина
+  }
+}
+
+// Контрольные точки
+@mixin bs-bp($name) {
+  $width: map-get($bs-grid-breakpoints, $name);
+
+  @include bs-media($width) {
+    @content;
+  }
+}

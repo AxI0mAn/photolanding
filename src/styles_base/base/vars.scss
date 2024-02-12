@@ -1,0 +1,81 @@
+$minWidth: 320; // ширинa экрана мобильника .container{min-width}
+$maxWidth: 1440; // ширина полотна макета .wrapper{max-width}
+$maxWidthContainer: 1268; // ширина ограничивающего контейнера .container{max-width}
+
+//breakPoints
+$xs: 0px;
+$smob: 490px;
+$mob: 576px;
+$tab: 768px;
+$rot: 992px;
+$desc: 1199.9px;
+$more: 1439.9px;
+
+//размер шрифта для <html> по умолчанию
+$rem: 16; //px
+
+// oсновные цвета макета
+$bgr_body: #161616;
+$T_color: #D6D0CE;
+$T_accent: #F2F2F2;
+
+// z-index
+$z-navMob: 5; // модальноe окнo меню
+$z-burgerAnim: 50; // header__burgerAnim
+$z-nav-ulliul: 20; // открытое под-меню
+$z-nav-ulliulliul: 30; //  открытое под-под-меню
+
+// значения параметров свойств для ссылок class-alink.scss
+$a-link: $T_color;
+$a-visited: $T_accent;
+$a-hover: $T_accent;
+$a-active: $bgr_body;
+$a-fontSize: 18px; // @include font_adapt($maketSize, $mobileSize) // func_rem($px) // func_prop($maket_value)
+$a-fontFamily: 'DM Mono',
+monospace;
+$a-letterSpasing: calc($a-fontSize / 3); // @include font_adapt($maketSize, $mobileSize) // func_rem($px) // func_prop($maket_value)
+$a-margin: func_prop(5) func_prop(10);
+
+
+
+// значения параметров свойств для кнопок class-button.scss
+// =======  поверхность
+// $button-width: func_rem(150); // func_rem($px) // func_prop($maket_value) 
+// $button-height: func_rem(50); // func_rem($px) // func_prop($maket_value) 
+
+// $button-border: 0px solid red; // чтоб можно было сделать радиус для border
+// $button-border-radius: 10px; // ТОЛЬКО ЗНАЧЕНИЯ!! не работает func_rem($px)
+
+// $button-bgc-start: rgb(135, 206, 235);
+// $button-bgc-hover: rgb(255, 255, 0);
+// $button-bgc-active: rgb(0, 128, 0);
+
+// =======  текст <span>
+// $button-fontFamily: 'Concert One',
+// sans-serif;
+// $button-fontSize: func_rem(18); // func_rem($px) // @include font_adapt($maketSize, $mobileSize) 
+// $button-letterSpasing: calc($button-fontSize / 3); // func_prop($maket_value)
+
+// $button-color-start: rgb(0, 128, 0);
+// $button-color-hover: rgba(181, 255, 241, 0.75);
+// $button-color-active: #87ceeb;
+
+
+// значения параметров свойств для кнопок class-button-icon.scss
+// цвет иконки
+// $button-icon-start: $button-bgc-start;
+// $button-icon-hover: $button-bgc-hover;
+// $button-icon-active: red;
+
+
+//  <header class="header container"> styles
+
+$header-min-height: 84px; // макетное значение
+$header-margin-bottom: func_prop(226); // макетное значение
+$header-margin-bgr: $bgr_body;
+$box-shadow-color: $T_color;
+
+$navMob-bgc: $bgr_body; // фон модального окна меню
+$navMob-width: 320px; // ширина модального окна меню
+$nav-transitionTime: 1.5s; // время появления/исчезновения модального окна меню
+$link-margin: 10px; // отступ от края экрана текста ссылок  модального окна меню

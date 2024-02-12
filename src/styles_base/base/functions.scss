@@ -1,0 +1,34 @@
+@import './../base/vars.scss';
+
+
+//============= F U N C T I O N s =================//
+
+//функция для пересчета из РХ в REM
+// func_rem(15);
+@function func_rem($px) {
+  @return calc(($px / $rem)*1rem);
+}
+
+//функция для расчета % этого элемета ($this_px), относительно родительского ($parent_px)
+// func_perc(1920, 300)
+@function func_perc($parent_px, $this_px) {
+  @return calc(($this_px / $parent_px) * 100%);
+}
+
+//функция для получения отзывчивого свойства
+// func_respons(1920, 300)
+@function func_respons($maxSizeValue, $minSizeValue) {
+  $deltaSize: $maxSizeValue - $minSizeValue;
+  @return calc(#{$minSizeValue + px} + #{$deltaSize} * ((100vw - #{$minWidth + px}) / (#{$maxWidth} - #{$minWidth})));
+}
+
+// функция для пропорционального изменения размера в зависимости от ширины экрана
+@function func_prop($maket_value) {
+  @return calc($maket_value*(100vw/$maxWidth));
+}
+
+
+// Адаптация через ограничение размера с помощью вилки (clamp) для любого элемента от минимум (1rem) до максимум (85px) с учетом предпочтительного размера (3rem)
+// font-size: clamp(1rem, 3rem, 85px);
+// width: clamp(100px, 500px, 100rem);
+//

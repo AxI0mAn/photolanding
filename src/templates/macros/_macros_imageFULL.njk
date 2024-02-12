@@ -1,0 +1,30 @@
+{% set params = [
+  {
+    class: 'new__img',
+    name: 'src',
+    folder: 'alt'
+  }
+] %}
+
+{%- macro pack(params) -%}
+  <picture class="{{params.class}}">
+    <source srcset="{{params.folder}}{{params.name}}-d.webp" type="image/webp" media="(min-width: 768px)" >
+    <source srcset="{{params.folder}}{{params.name}}-d.jpeg" type="image/jpeg" media="(min-width: 768px)" >
+    <source srcset="{{params.folder}}{{params.name}}-m.webp" type="image/webp" media="(max-width: 767.9px)" >
+    <source srcset="{{params.folder}}{{params.name}}-m.jpeg" type="image/jpeg" media="(max-width: 767.9px)" >
+    <img src="{{params.folder}}{{params.name}}.jpeg" alt="image {{params.name}}" title="foto {{params.name}}" loading="lazy"/>
+  </picture>
+{%- endmacro -%}
+
+{# USE
+
+{% set img1 ={ 
+    name: '',
+    folder: './../assets/images/home/'
+    }
+  %}
+
+{%- import "_macros_image.njk" as makePicture -%}
+  {{ makePicture.pack(img1) }}
+ 
+#}

@@ -1,0 +1,23 @@
+@import "./../../../styles_base/base/vars.scss";
+
+// Максимальная ширина контейнера
+$bs-container-max-width: 1140px !default;
+
+// Выравнивание элементов в строке
+$justify-content: center !default;
+
+// Количество колонок
+$bs-grid-columns: 12 !default;
+
+// Расстояние между элементами
+$bs-grid-gap: 30px !default;
+$bs-grid-gap-side: calc($bs-grid-gap / 2);
+
+//контрольные точки
+$bs-grid-breakpoints:(xs: $xs,
+  smob: $smob,
+  mob: $mob,
+  tab: $tab,
+  rot: $rot,
+  desc: $desc,
+  more: $more) !default;

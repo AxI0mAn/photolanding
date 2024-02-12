@@ -1,0 +1,12 @@
+// значения параметров свойств для ссылок из макета в файле:
+@import './../../styles_base/base/vars.scss';
+
+
+// общие стили для всех эффектов и состояний
+.logotype {
+
+  &:hover {
+    border-bottom: 3px solid $T_accent;
+    @include transit(.5s);
+  }
+}

@@ -1,0 +1,24 @@
+@use 'sass:math';
+@import "./bs-vars.scss";
+@import "./bs-mixins.scss";
+
+//генерируем колонки c классами 
+// bs-media($width) - генерируем классы сетки
+// .bs-col - [ИМЯ КОНТРОЛЬНОЙ ТОЧКИ] - [КОЛИЧЕСТВО ЗАНИМАЕМЫХ КОЛОНОК] 
+@each $bp,
+$width in $bs-grid-breakpoints {
+  @include bs-media($width) {
+    @for $i from 1 through $bs-grid-columns {
+      .bs-col-#{$bp}-#{$i} {
+        @include bs-col($i);
+      }
+    }
+  }
+}
+
+// генерируем классы сетки
+// @for $i from 1 through $bs-grid-columns {
+//   .bs-col-#{$i} {
+//     @include bs-col($i);
+//   }
+// }

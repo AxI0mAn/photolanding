@@ -1,0 +1,41 @@
+@use 'sass:color';
+
+.header {
+  // ======================================== //
+  // стили для ПОЛОСЫ [размеры] [фон] [отступы] [flex or grid] [@media]
+  // ======================================== //
+  margin: 0 auto;
+  min-height: $header-min-height;
+  margin-bottom: $header-margin-bottom;
+  background-color: transparent;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: center;
+  z-index: 200;
+  // ======================================== //
+  // стили для БЛОКА логотипа-ссылки
+  // ======================================== //
+  // &__logo {}
+
+  &__logo--link {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    @media (max-width: calc($tab + 0.01px)) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      grid-area: logotype;
+      align-self: center;
+    }
+  }
+
+  &__logo--icon {
+    height: auto;
+    width: func_prop(323);
+    min-width: 150px;
+    opacity: 1;
+  }
+}

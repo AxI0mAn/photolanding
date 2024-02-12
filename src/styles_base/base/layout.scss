@@ -1,0 +1,89 @@
+//============= F L E X - B O X =================//
+//flex
+//@include fx ($direction, $wrap: nowrap, $jc: space-between, $ac: center, $grow: 0, $shrink: 0, $basis: auto);
+@mixin fx ($direction, $wrap: nowrap, $jc: space-between, $ac: center, $grow: 0, $shrink: 0, $basis: auto) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $jc;
+  align-content: $ac;
+  flex: $grow $shrink $basis;
+}
+
+//@include fx-column();
+@mixin fx-column ($wrap: nowrap) {
+  display: flex;
+  flex-flow: column $wrap;
+}
+
+@mixin fx-row($wrap: nowrap) {
+  display: flex;
+  flex-flow: row $wrap;
+}
+
+@mixin fx-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin fx-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin fx-center-vert {
+  display: flex;
+  align-items: center;
+}
+
+@mixin fx-center-horiz {
+  display: flex;
+  justify-content: center;
+}
+
+//============= G R I D - L A Y O U T =================//
+// 
+//  @include grid_each-centr($col, $row);  
+@mixin grid_each-centr($col, $row) {
+  display: grid;
+  grid-template-columns: repeat($col, 1fr);
+  grid-template-rows: repeat($row, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+// Если хочешь только rows   
+//  @include grid(repeat(2, 1fr));
+
+// Если хотите rows и columns     
+// @include grid(repeat(2, 1fr), repeat(3, 1fr));
+
+// Если хотите columns, но не row то же самое gap, row-gap или column-gap 
+//  @include grid($columns: repeat(3, 1fr));
+
+@mixin grid($rows: null, $columns: null, $gap: null, $row-gap: null, $column-gap: null) {
+  display: grid;
+  gap: $gap;
+  row-gap: $row-gap;
+  column-gap: $column-gap;
+  grid-template-rows: $rows;
+  grid-template-columns: $columns;
+}
+
+//======================
+// сетка в стиле галереи с неизвестным количеством элементов, если они имеют одинаковую высоту.
+// для сетки из элементов разной высоты - нужно добавлять clear:both к каждому элементу с новой строки
+
+@mixin part_of($num, $gutter_percent: $gutter_percent) {
+  margin-right: $gutter_percent;
+  float: right;
+  width: (100 - $gutter_percent * ($num - 1)) / $num;
+
+  &:nth-of-type(#{$num}n+1) {
+    margin-right: 0;
+  }
+
+  &:nth-of-type(n+#{($num+1)}) {
+    margin-top: $gutter_percent;
+  }
+}

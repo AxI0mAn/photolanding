@@ -1,0 +1,52 @@
+{% block bootstraping %}
+  <div class="bs-container">
+    <div class="block-up">
+      <div class="block-up__first item">
+        <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+      </div>
+      <div class="block-up__second item">
+        <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+      </div>
+      <div class="block-up__therd item">
+        <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+      </div>
+    </div>
+  </div>
+  <section class="section new">
+    <div class="bs-container">
+      <div class="new-block block-up">
+        <div class="block-up__item--img">
+          <img class="block-up__img" src="./../assets/content/pages/index/work_4L.jpeg" alt="">
+        </div>
+        <div class="block-up__item--img">
+          <img class="block-up__img" src="./../assets/content/pages/index/work_4L.jpeg" alt="">
+        </div>
+        <div class="block-up__item--img">
+          <img class="block-up__img" src="./../assets/content/pages/index/work_4L.jpeg" alt="">
+        </div>
+        <div class="block-up__item--img">
+          <img class="block-up__img" src="./../assets/content/pages/index/work_4L.jpeg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section name">
+    <div class="name__bs-container">
+      <div class="name__bs-row first">
+        <img src="./../assets/content/pages/index/work_1L.jpeg" alt="" class="first__bs-col--img">
+        <img src="./../assets/content/pages/index/work_2L.jpeg" alt="" class="first__bs-col--img">
+        <img src="./../assets/content/pages/index/work_3L.jpeg" alt="" class="first__bs-col--img">
+        <img src="./../assets/content/pages/index/work_5L.jpeg" alt="" class="first__bs-col--img">
+      </div>
+      <div class="name__bs-row second">
+        <p class="second__bs-col--text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus corporis non quia?</p>
+        <picture class="second__bs-col--img">
+          <source srcset="./../assets/content/pages/index/work_2L.jpeg" media="(max-width: 500px)" >
+          <source srcset="./../assets/content/pages/index/work_2L.jpeg" type="image/webp" >
+          <img src="./../assets/content/pages/index/work_2L.jpeg" alt="" title="foto {{params.name}}" loading="lazy"/>
+        </picture>
+      </div>
+    </div>
+  </section>
+{% endblock %}

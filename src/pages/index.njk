@@ -1,0 +1,261 @@
+{% set title = 'Photograph' %}
+{% set btnStyle = 'button-e3' %}
+{% set alink_Logo = 'logotype' %}
+
+{% include "_head.njk" %}
+
+<body>
+  <canvas></canvas>
+  <div id="anchorUP" class="wrapper__{{ title }} wrapper">
+    {% include "./../templates/partials/_header.njk" %}
+    <main class="main container">
+      <section class="section hero">
+        <h1 class="hero__title">This Project</h1>
+        <div class="hero__img">
+          {% set img1 = {
+          class: 'hero__img1',
+          name: 'Main-IMG',
+          folder: './../../src/assets/content/pages/index/'
+        }%}
+          {%- import "./macros/_macros_image.njk" as makePicture -%}
+          {{ makePicture.pack(img1) }}
+        </div>
+      </section>
+      <section class="section team">
+        <div class="team__position art-dir">
+          <p class="job">art director</p>
+          <p class="name"> Obri Harfs</p>
+        </div>
+        <div class="team__position cre-dir">
+          <p class="job">creative director</p>
+          <p class="name">Natan Smilenger</p>
+        </div>
+        <div class="team__position designer">
+          <p class="job">designer</p>
+          <p class="name">Emma Designer</p>
+        </div>
+      </section>
+      <section class="section this-project">
+        <div class="thisProject__img">
+          {% set img1 = {
+          name: '2IMG',
+          folder: './../../src/assets/content/pages/index/'
+        }%}
+          {%- import "./macros/_macros_image.njk" as makePicture -%}
+          {{ makePicture.pack(img1) }}
+        </div>
+
+        <div class="thisProject__img-all">
+          <h2 class="thisProject__title">This Project</h2>
+          {% set complect = [
+            {
+            class: "all",
+            name: '3IMG',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'This Project Foto 2'
+          },
+            {
+              class: "all",
+            name: '4IMG',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'This Project Foto 3'
+          },
+            {
+              class: "all",
+            name: '5IMG',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'This Project Foto 4'
+          },
+            {
+              class: "all",
+            name: '6IMG',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'This Project Foto 5'
+          },
+            {
+              class: "all",
+            name: '7IMG',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'This Project Foto 6'
+          }
+          ]%}
+
+          {%- import "./macros/_macros_make_gallery.njk" as makeGall -%}
+
+          {% for item in complect %}
+            <div class="gal_img__{{loop.index}}" >
+              {{ makeGall.gallery(item)}}
+            </div>
+          {% endfor %}
+
+        </div>
+      </section>
+      <section class="section previous-project">
+        {% include "/Users/imac/Desktop/axio/portfolio24/fotograff/src/templates/svg_inline/scroll-h.svg" %}
+        <div class="prev__header">
+          <h2 class="prev__stroke">Previous Project</h2>
+          <h2 class="prev__stroke">Previous Project</h2>
+        </div>
+        <!-- Slider main container -->
+        <div class="swiper__previous-project">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            {% set complect = [
+            {
+            class: "slider-img",            
+            name: '1IMGslide',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Previous Project foto 1'
+          },
+            {
+            class: "slider-img",            
+            name: '2IMGslide',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Previous Project foto 2'
+          },{
+            class: "slider-img",            
+            name: '1IMGslide',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Previous Project foto 3'
+          },
+            {
+            class: "slider-img",            
+            name: '2IMGslide',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Previous Project foto 4'
+          }
+          ]%}
+
+            {%- import "./macros/_macros_make_gallery.njk" as makeGall -%}
+
+            {% for item in complect %}
+              <div class="swiper-slide {{item.class}}__{{loop.index}}" >
+                {{ makeGall.gallery(item)}}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <h2 class="prev__fill">Previous Project</h2>
+      </section>
+      <section class="section nextProject">
+        {% include "/Users/imac/Desktop/axio/portfolio24/fotograff/src/templates/svg_inline/press.svg" %}
+        {% include "/Users/imac/Desktop/axio/portfolio24/fotograff/src/templates/svg_inline/scroll-v.svg" %}
+        <div class="nextProject__content">
+          {% set complect = [
+            {
+            class: "next_img",
+            name: 'IMG_5485Next',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project Foto 1'
+          },
+            {
+              class: "next_img",
+            name: 'IMG_H5A0Next',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project Foto 2'
+          },
+            {
+              class: "next_img",
+            name: 'IMG_7407Next',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project Foto 3'
+          }
+          ]%}
+
+          {%- import "./macros/_macros_make_gallery.njk" as makeGall -%}
+
+          {% for item in complect %}
+            <div class="next_img__{{loop.index}}" >
+              {{ makeGall.gallery(item)}}
+            </div>
+          {% endfor %}
+          <h2 class="nextProject__title">Next Project</h2>
+        </div>
+      </section>
+      <a href="#anchorUP" class="action_arrow_UP">
+        {% include "/Users/imac/Desktop/axio/portfolio24/fotograff/src/templates/svg_inline/arrow_UP.svg" %}
+      </a>
+      <section class="section nextMore">
+
+        <div class="nextMore__img-all">
+          {% set complect = [
+          {
+            class: "gal_nextMore__item",
+            name: 'IMG_5485Next',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project Foto 1'
+          },
+            {
+              class: "gal_nextMore__item",
+            name: 'IMG_H5A0Next',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project Foto 2'
+          },
+            {
+              class: "gal_nextMore__item",
+            name: 'IMG_7407Next',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project Foto 3'
+          },
+          {
+            class: "gal_nextMore__item",
+            name: 'more4',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project more Foto 4'
+          },
+          {
+            class: "gal_nextMore__item",
+            name: 'more2',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project more Foto 2'
+          },
+            {
+            class: "gal_nextMore__item",
+            name: 'more3',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project more Foto 2'
+          },
+            {
+              class: "gal_nextMore__item",
+            name: 'more1',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project more Foto 1'
+          },
+            {
+              class: "gal_nextMore__item",
+            name: 'more5',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project more Foto 4'
+          },
+            {
+              class: "gal_nextMore__item",
+            name: 'more6',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project more Foto 5'
+          },
+            {
+              class: "gal_nextMore__item",
+            name: 'more7',
+            folder: './../../src/assets/content/pages/index/',
+            alt: 'Next Project more Foto 6'
+          }
+          ]%}
+
+          {%- import "./macros/_macros_make_gallery.njk" as makeGall -%}
+
+          {% for item in complect %}
+            <div class="gal_nextMore__{{loop.index}}" >
+              {{ makeGall.gallery(item)}}
+            </div>
+          {% endfor %}
+
+        </div>
+      </section>
+    </main>
+    {% include "./../templates/partials/_footer.njk" %}
+  </div>
+</body>
+
+</html>

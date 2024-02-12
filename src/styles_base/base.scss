@@ -1,0 +1,46 @@
+@import './base/nulling.scss'; // обнуление стилей браузера
+
+@import './base/vars.scss'; // ВСЕ переменные 
+@import './base/functions.scss'; // SASS функции
+@import './base/mixins.scss'; // SASS миксины
+@import './base/layout.scss'; // SASS для FLEX-box и GRID-layout
+
+@import './base/fonts.scss'; // подключение шрифтов
+@import './base/text-tag.scss'; // стили для тегов h1-h6 p li em strong и т.п.
+
+@import './elements.scss'; // сборщик стилей для элементов: ссылок кнопок  иконочных кнопок
+
+
+
+
+body {
+  // height: 100%;
+  font-size: calc($rem*1px); // значение из макета - установлено в base/var.scss  - размер основного текста в 1rem
+  background-color: $bgr_body; // значение из макета - установлено в base/var.scss 
+  color: $T_color; // значение из макета - установлено в base/var.scss 
+
+}
+
+.wrapper {
+  margin: 0 auto; // центрируем по горизонтали
+
+  padding-left: 15px; // отступ от края экрана
+  padding-left: 15px; // отступ от края экрана
+
+  min-height: 100%; // чтоб footer не поднимался
+  max-width: calc($maxWidth*1px); // значение из макета - установлено в base/var.scss 
+
+  display: flex; // чтоб footer не поднимался
+  flex-flow: column nowrap; // чтоб footer не поднимался
+}
+
+.container {
+  align-self: center; // центрируем по горизонтали
+  min-width: calc($minWidth*1px); // значение из макета - установлено в base/var.scss 
+  width: 98%; // сжимается при уменьшении экрана 
+  max-width: calc($maxWidthContainer*1px); // значение из макета - установлено в base/var.scss 
+}
+
+.main {
+  flex: 1 1 auto; // чтоб footer не поднимался
+}

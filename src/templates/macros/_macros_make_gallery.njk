@@ -1,0 +1,36 @@
+{% set params = [
+  {
+    class: 'new__img',
+    name: 'src',
+    folder: 'fold',
+    alt: 'alt'
+  }
+] %}
+
+{%- macro gallery(params) -%}
+  <picture class="{{params.class}}">
+    <source srcset="{{params.folder}}{{params.name}}-d.webp" type="image/webp">
+    <source srcset="{{params.folder}}{{params.name}}-d.png" type="image/jpeg" >
+    <img src="{{params.folder}}{{params.name}}-d.png" alt="{{params.alt}}" title="{{params.alt}}" loading="lazy"/>
+  </picture>
+{%- endmacro -%}
+
+{# USE
+ {% set complect = [
+    {
+    name: 'src',
+    folder: 'fold',
+    alt: 'alt'
+  },
+    {
+    name: 'src',
+    folder: 'fold',
+    alt: 'alt'
+  }
+  ]%}
+
+{%- import "_macros_make_gallery.njk" as makeGall -%}
+
+{% for item in complect %}
+ {{ makeGall.gallery(item)}}
+{% endfor %}  #}

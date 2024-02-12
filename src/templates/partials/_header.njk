@@ -1,0 +1,21 @@
+{% block header %}
+  <header class="header container">
+
+    <button class="header__button {{ btnStyle }}"  title="about">
+      <span>about</span>
+    </button>
+
+    {# блок логотипа фото + название #}
+    <div class="header__logo">
+      <a class="header__logo--link {{ alink_Logo }}" href="#" title="Logotype-link">
+        <img class="header__logo--icon " src="./../assets/content/logotype.png" alt="logotype" >
+        {# <span class="header__logo--text ">axi0man</span> #}
+      </a>
+    </div>
+
+    <button class="header__button {{ btnStyle }}"  title="about">
+      <span>contact</span>
+    </button>
+
+  </header>
+{% endblock %}

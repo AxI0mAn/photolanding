@@ -1,0 +1,447 @@
+// сборщик (подключение) основных стилей base.scss
+@import './../styles_base/base';
+// подключение стилей частей, повторяющихся на разных страницах 
+@import './../templates/partials/_header';
+@import './../templates/partials/_footer';
+//подключение стилей для модулей, которые влияют на поведение блоков 
+// @import './../templates/modules/bootstraping/bs-init';
+
+.main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  position: relative;
+  // overflow-x: hidden;
+}
+
+canvas {
+  position: fixed;
+}
+
+.hero {
+  position: relative;
+
+  .hero__title {
+    position: absolute;
+    left: 10%;
+    top: -12%;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .hero__img {
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.team {
+  margin: func_prop(183) auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: func_rem(80);
+}
+
+.team__position {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.job {
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  @include font_adapt(24, 10);
+}
+
+.name {
+  font-family: 'ABeeZee', sans-serif;
+  @include font_adapt(24, 10);
+}
+
+.this-project {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  gap: func_prop(211);
+}
+
+.thisProject__img {
+  img {
+    width: func_prop(1039);
+    height: auto;
+  }
+}
+
+
+
+.thisProject__img-all {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: func_prop(211);
+
+  .thisProject__title {
+    position: absolute;
+    right: 0%;
+    top: func_respons(-80, -30);
+    z-index: -100;
+  }
+
+  img {
+    // display: block;
+    max-width: 100%;
+    height: auto;
+    z-index: 100;
+  }
+}
+
+.gal_img {
+  &__1 {
+    width: func_prop(1000);
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  &__2 {
+    width: func_prop(1000);
+  }
+
+  &__3 {
+    width: func_prop(500);
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  &__4 {
+    width: func_prop(500);
+    margin-top: -33.3%;
+  }
+
+  &__5 {
+    width: func_prop(500);
+    align-self: flex-end;
+    text-align: right;
+    margin-top: -33.3%;
+  }
+}
+
+.previous-project {
+  position: relative;
+  margin-top: func_prop(480);
+  overflow: hidden;
+  // max-width: 100%;
+}
+
+.prev__header {
+  @include сentering-xy();
+  min-width: 100%;
+  text-align: center;
+}
+
+.prev__stroke {
+  z-index: -100;
+  color: transparent;
+  -webkit-text-stroke: 1px $T_color;
+  -webkit-text-fill-color: transparent;
+}
+
+.prev__fill {
+  @include сentering-xy();
+  top: 75%;
+  min-width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+
+.swiper-wrapper {
+  margin: 0 auto;
+  // margin-left: 15%;
+}
+
+.swiper-slide {
+  min-width: 300px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.nextProject {
+  &:hover {
+    cursor: pointer;
+  }
+
+  position: relative;
+  margin-top: func_prop(480);
+  margin-bottom: func_prop(300);
+  padding: 100px;
+  overflow: hidden;
+  filter: blur(0.1);
+  //text-align: center;
+  -webkit-filter: blur(0.1);
+
+  &__title {
+    position: absolute;
+    bottom: 0%;
+
+    min-width: 100%;
+    text-align: center;
+    font-size: func_respons(154, 30);
+    opacity: .3;
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+  }
+}
+
+
+.next_img {
+  max-width: 100%;
+  height: auto;
+
+  &__1,
+  &__1 img {
+    transform: translateX(15%) translateY(-5%) rotateZ(6.92deg);
+    -webkit-transform: translateX(15%) translateY(-5%) rotateZ(6.92deg);
+    -moz-transform: translateX(15%) translateY(-5%) rotateZ(6.92deg);
+    -ms-transform: translateX(15%) translateY(-5%) rotateZ(6.92deg);
+    -o-transform: translateX(15%) translateY(-5%) rotateZ(6.92deg);
+    opacity: 0.5;
+  }
+
+  &__2 {
+    z-index: 100;
+    transform: rotateZ(-4.05deg);
+    -webkit-transform: rotateZ(-4.05deg);
+    -moz-transform: rotateZ(-4.05deg);
+    -ms-transform: rotateZ(-4.05deg);
+    -o-transform: rotateZ(-4.05deg);
+    filter: saturate(0.4);
+    -webkit-filter: saturate(0.4);
+  }
+
+  &__3 {
+    transform: translateX(-30%) translateY(10%) rotateZ(-8.2deg);
+    -webkit-transform: translateX(-30%) translateY(10%) rotateZ(-8.2deg);
+    -moz-transform: translateX(-30%) translateY(10%) rotateZ(-8.2deg);
+    -ms-transform: translateX(-30%) translateY(10%) rotateZ(-8.2deg);
+    -o-transform: translateX(-30%) translateY(10%) rotateZ(-8.2deg);
+    opacity: .2;
+  }
+}
+
+.nextMore__img-all {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: func_prop(111);
+
+  img {
+    // display: block;
+    max-width: 100%;
+    height: auto;
+    z-index: 100;
+  }
+}
+
+.nextMore {
+  position: relative;
+  margin-bottom: 50px;
+  display: none;
+}
+
+.nextMore.more {
+  display: block;
+}
+
+.gal_nextMore {
+
+  &__1,
+  &__6 {
+    width: func_prop(1000);
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  &__2,
+  &__10 {
+    width: func_prop(1000);
+  }
+
+  &__3,
+  &__7 {
+    width: func_prop(500);
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  &__4,
+  &__8 {
+    width: func_prop(500);
+    margin-top: -33.3%;
+  }
+
+  &__5,
+  &__9 {
+    width: func_prop(500);
+    align-self: flex-end;
+    text-align: right;
+    margin-top: -33.3%;
+  }
+
+  img {
+    max-height: 555px;
+  }
+}
+
+.icon_clickThis.more {
+  visibility: hidden;
+}
+
+.icon_clickThis {
+  visibility: visible;
+  @include сentering-x();
+  bottom: 17.5%;
+
+  z-index: 300;
+
+  path {
+    fill: $T_color;
+  }
+
+  transform: scale(3);
+  -webkit-transform: scale(3);
+  -moz-transform: scale(3);
+  -ms-transform: scale(3);
+  -o-transform: scale(3);
+  animation: anim_icon_clickThis 3s ease 0s infinite normal none running;
+  -webkit-animation: anim_icon_clickThis 3s ease 0s infinite normal none running;
+}
+
+@keyframes anim_icon_clickThis {
+  50% {
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
+  }
+}
+
+.icon_scrollH {
+  @include сentering-x();
+  top: 20%;
+  z-index: 300;
+
+  path {
+    fill: $T_color;
+  }
+
+  transform: scale(4);
+  -webkit-transform: scale(4);
+  -moz-transform: scale(4);
+  -ms-transform: scale(4);
+  -o-transform: scale(4);
+  animation: anim_icon_scrollH 3s ease 0s infinite normal none running;
+  -webkit-animation: anim_icon_scrollH 3s ease 0s infinite normal none running;
+}
+
+@keyframes anim_icon_scrollH {
+
+  50% {
+    transform: translateX(350%) scale(4);
+    -webkit-transform: translateX(350%) scale(4);
+    -moz-transform: translateX(350%) scale(4);
+    -ms-transform: translateX(350%) scale(4);
+    -o-transform: translateX(350%) scale(4);
+  }
+}
+
+.icon_scrollV {
+  visibility: hidden;
+}
+
+.icon_scrollV.more {
+  visibility: visible;
+  @include сentering-x();
+  bottom: 22%;
+  z-index: 300;
+
+  path {
+    fill: $T_color;
+  }
+
+  transform: scale(3);
+  -webkit-transform: scale(3);
+  -moz-transform: scale(3);
+  -ms-transform: scale(3);
+  -o-transform: scale(3);
+  animation: anim_icon_scrollV 3s ease 0s infinite normal none running;
+  -webkit-animation: anim_icon_scrollV 3s ease 0s infinite normal none running;
+}
+
+@keyframes anim_icon_scrollV {
+
+  50% {
+    transform: translateY(200%) scale(3);
+    -webkit-transform: translateY(200%) scale(3);
+    -moz-transform: translateY(200%) scale(3);
+    -ms-transform: translateY(200%) scale(3);
+    -o-transform: translateY(200%) scale(3);
+  }
+}
+
+.icon_arrow_UP {
+
+  #Vector,
+  #Vector_2 {
+    stroke: $T_color;
+    stroke-width: 2px;
+  }
+
+  transform: translateY(75%) scale(2);
+  -webkit-transform: translateY(75%) scale(2);
+  -moz-transform: translateY(75%) scale(2);
+  -ms-transform: translateY(75%) scale(2);
+  -o-transform: translateY(75%) scale(2);
+
+  &:hover {
+    animation: anim_icon_arrow_UP 3s ease 0s infinite normal none running;
+    -webkit-animation: anim_icon_arrow_UP 3s ease 0s infinite normal none running;
+  }
+}
+
+@keyframes anim_icon_arrow_UP {
+
+  50% {
+    transform: translateY(-75%) scale(2);
+    -webkit-transform: translateY(-75%) scale(2);
+    -moz-transform: translateY(-75%) scale(2);
+    -ms-transform: translateY(-75%) scale(2);
+    -o-transform: translateY(-75%) scale(2);
+  }
+}
+
+.action_arrow_UP {
+  z-index: 300;
+  align-self: flex-end;
+  width: fit-content;
+  padding: 25px;
+  // margin-left: func_respons(150, 20);
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
+  top: 80vh;
+}

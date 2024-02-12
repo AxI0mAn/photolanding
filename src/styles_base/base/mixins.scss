@@ -1,0 +1,209 @@
+@import './../base/vars.scss';
+
+
+//============= M I X I N s =================//
+
+// Адаптация текста между макетным и минимальным значениями
+// @include font_adapt($bigSize, $smallSize);
+@mixin font_adapt($bigSize, $smallSize) {
+  $deltaMaxSize: $bigSize - $smallSize;
+  $deltaMinSize: 1.7 * $deltaMaxSize;
+
+  @media (max-width: 1023px) {
+    font-size: calc(($smallSize * 1px) + $deltaMinSize * ((100vw - ($minWidth * 1px)) / $maxWidth));
+  }
+
+  @media (min-width: 1024px) {
+    font-size: calc(($smallSize * 1px) + ($deltaMaxSize * (100vw / #{$maxWidth})));
+  }
+}
+
+//==========================
+// шрифт одной строкой ЗАДАЮТ ЧЕРЕЗ  свойство  БЕЗ МИКСИНА
+//@include font($color: $T_color, $max_size, $min_size, $f-weight: normal, $line-height: normal, $text-trans: none, $leter-spac: normal) {
+// @mixin font($color: $T_color, $max_size, $min_size, $line-height-max, $line-height-min: 1, $f-weight: normal, $text-trans: none, $leter-spac: normal) {
+//   color: $color;
+//   font-size: func_respons($max_size, $min_size);
+//   line-height: func_respons($line-height-max, $line-height-min);
+//   font-weight: $f-weight;
+//   text-transform: $text-trans;
+//   letter-spacing: $leter-spac;
+// }
+
+//==========================
+// определения ширины и высоты за один раз.
+//@include box($width, $height: $width);
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+//=========================
+//@include bordeR($radius);
+@mixin bordeR($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+}
+
+//===============================================
+//переходы между состояниями
+//@include transit;
+@mixin transit($duration: 0.3s) {
+  transition: all $duration ease 0s;
+  -webkit-transition: all $duration ease 0s;
+  -moz-transition: all $duration ease 0s;
+  -ms-transition: all $duration ease 0s;
+  -o-transition: all $duration ease 0s;
+}
+
+//===============================================
+// вместо position: absolute;
+// //@include pos_a();
+// @mixin pos_a($top: auto, $right: auto, $bottom: auto, $left: auto, $width, $height) {
+//   position: absolute;
+//   top: $top;
+//   right: $right;
+//   bottom: $bottom;
+//   left: $left;
+//   @include box($width, $height: $width);
+// }
+
+//отцентрировать блок по осям х/у
+//@include сentering-xy();
+@mixin сentering-xy() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+//@include сentering-x();
+@mixin сentering-x() {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+//@include сentering-y();
+@mixin сentering-y() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+
+//=================================================
+// свойства для псевдоэлементов: 
+//@include pseudo-block('content');
+@mixin pseudo-block($content: '', $display: block, $pos: absolute) {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+//@include pseudo-inline('content');
+@mixin pseudo-inline($width: 100%,
+  $height: 100%,
+  $display: inline-block,
+  $pos: absolute,
+  $content: ""
+
+) {
+  content: $content;
+  display: $display;
+  position: $pos;
+  @include box($width, $height);
+}
+
+//==================================================
+// Стилизация плейсхолдера для элементов ввода 
+//@include placeholder($color, $size, $weight);
+@mixin placeholder($color, $size, $weight) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  }
+}
+
+//=====================================
+// CSS-треугольники
+//@include triangle($width, up/right/down/left, $color);
+@mixin triangle($width, $direction, $color) {
+  width: 0;
+  height: 0;
+
+  @if $direction==up {
+    border-left: $width solid transparent;
+    border-right: $width solid transparent;
+    border-bottom: $width solid $color;
+  }
+
+  @if $direction==down {
+    border-left: $width solid transparent;
+    border-right: $width solid transparent;
+    border-top: $width solid $color;
+  }
+
+  @if $direction==left {
+    border-top: $width solid transparent;
+    border-bottom: $width solid transparent;
+    border-right: $width solid $color;
+  }
+
+  @if $direction==right {
+    border-top: $width solid transparent;
+    border-bottom: $width solid transparent;
+    border-left: $width solid $color;
+  }
+}
+
+//====================
+// Видимость - миксин для скрытия или отображения элемента, полезный для анимации появления/затухания.
+// @include fade(hide/show)
+@mixin fade($type) {
+  @if $type=="hide" {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s, opacity 1s;
+  }
+
+  @else if $type=="show" {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s, opacity 1s;
+  }
+}
